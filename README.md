@@ -3,6 +3,7 @@ II.	Design Patterns
 III.	Flow
 IV.	Interfata Grafica
 
+
 I.	In clasele Actor, User, Request si Production am folosit Jackson pentru a citi datele din fisierul Json, mai exact in constructorii acestor clase.
 
 La crearea unor noi requesturi, data requestului creat este completata automat cu data si momentul in care cererea a fost completata, pentru a face procesul de requesting sa fie mai practic.
@@ -23,6 +24,7 @@ Sunt clase care actualizeaza experienta utilizatorului in functie de actiunile a
 	+5p pentru adaugarea unei recenzii
 	+10p daca i se rezolva o cerere
 	+15p daca adauga in system un actor sau o productie
+ 
 
 
 II.	Singleton Pattern: L-am folosit in clasa IMDB, mai exact in constructor, pentru a avea o instanta unica a acestei clase.
@@ -35,11 +37,16 @@ Observer Pattern: Pentru a implementa acest design pattern am folosit clasa abst
 
 Strategy Pattern: Am folosit o interfata ExperienceStrategy care contine metoda calculateExperience. Apoi in clasele RequestStrategy, RatingStrategy si AddingInTheSystemStrategy, care implementeaza aceasta interfata, am folosit metoda de calcul a experientei pentru fiecare caz.
 
+
+
 III.	Flow-ul aplicatiei. In clasa IMDB, in metoda run utilizatorul este intrebat sub ce forma trebuie sa se deschida aplicatia (Terminal sau Interfata Grafica), incarcandu-se mai intai datele din fisierele json. 
 
 Am folosit un label „loggingInLoop:” pentru ca in cazul in care utilizatorul vrea sa se deconecteze, sa ne intoarcem la etapa de logare, fara a inchide aplicatia, pastrand toate modificarile facute in sistem pana in acel moment. Cu ajutorul functiilor verifyEmail si verifyPassword se verifica corectitudinea datelor de logare. In caz ca se reuseste logarea, variabila isAuthenticated este setata la true, pentru a se opri loop-ul de logare. Apoi, in functie de tipul utilizatorului logat, se afiseaza meniul. Pentru indeplinirea sarcinilor din meniu, m-am folosit de niste metode ajutatoare, acestea fiind vizibile dupa finalul metodei run.
 
 Corectitudinea comenzilor este asigurata in functia scanningNextInt(), care verifica daca s-a introdus un int si se executa comanda scanningNextLine() pentru a consuma newline-ul. De asemena, pe parcursul flow-ului se mai verifica anumite exceptii, atat cat la crearea de noi obiecte Information(daca sunt nule, scurte sau daca nu respecta formatul unor credentiale) sau daca se introduce un int care nu are legatura cu activarea unei comenzi. 
+
+
+
 
 IV.	Daca utilizatorul apasa 2, se deschide interfata grafica, mai exact clasa LoginGUI. Am folosit o imagine de fundal, iar datele de logare le-am introdus in centrul acesteia, pentru a arata mai bine. In clasa LoginGUI am folosit un Jframe, un JtextField pentru a se introduce emailul, JPasswordField pentru a se introduce parola, un JButton de login si un JLabel pentru un mesaj de eroare. Pe langa asta am mai declarat un obiect static de tip User, pentru a avea acces la toate informatiile acestui obiect in timpul rularii interfetei grafice.
 
